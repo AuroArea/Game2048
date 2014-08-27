@@ -22,9 +22,9 @@ function gameManager(){
 
 gameManager.prototype.intializeGame = function(){
 	var arr = [];
-	for(var x = 0; x < 100; x++){
+	for(var x = 0; x < 4; x++){
 	    arr[x] = [];    
-	    for(var y = 0; y < 100; y++){ 
+	    for(var y = 0; y < 4; y++){ 
 	        arr[x][y] = x*y;    
 	    }    
 	}
