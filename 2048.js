@@ -12,6 +12,7 @@
 	}
 
 	var game = new gameManager();
+	
 
 function gameManager(){
 	 this.startTiles = 4;
@@ -77,7 +78,7 @@ gameManager.prototype.addScore = function (){
 }
 
 	game.initializeGame();
-	
+
 })();
 
 
