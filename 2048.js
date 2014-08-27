@@ -25,13 +25,18 @@ gameManager.prototype.intializeGame = function(){
 	for(var x = 0; x < 4; x++){
 	    arr[x] = [];    
 	    for(var y = 0; y < 4; y++){ 
-	        arr[x][y] = x*y;    
+	    	if(x==0 & y==4 ){
+	    		arr[x][y] =  Math.random() < 0.9 ? 6 : 4 ;
+	    	}
+	    	else if((x==1 & y==1){
+	    		arr[x][y] = Math.random() < 0.9 ? 2 : 4 ;
+	    	}
+	    	else{
+	    		arr[x][y] = undefined;
+	    	}
 	    }    
 	}
-	this.valuedArray[0][4] = Math.random() < 0.9 ? 6 : 4 ;
-	this.valuedArray[1][1] = Math.random() < 0.9 ? 2 : 4 ;
-	this.valuedArray[2][3] = Math.random() < 0.9 ? 4 : 6 ;
-	this.valuedArray[3][3] = Math.random() < 0.9 ? 2 : 8 ;
+	
 }
 
 gameManager.prototype.move = function (direction){
