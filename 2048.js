@@ -1,5 +1,6 @@
+
+
 (function(){
-	game = new gameManager();
 
 	//37:left, 38:up, 39:right, 40:down
 	window.onkeydown = function(event){
@@ -9,18 +10,25 @@
 			game.move(direction);
 		}
 	}
-})();
 
+	var game = new gameManager();
 
 function gameManager(){
 	 this.startTiles = 4;
 	 this.cellScore = 0;
 	 this.totalScoreOfCell = 0;
-	 this.noOfRows = document.getElementsByClassName('row').length;
-	 this.noOfCols = document.getElementsByClassName('col').length;
+
 };
 
-gameManager.prototype.intializeGame = function(){
+gameManager.prototype.initializeGame = function(){
+
+	var rowsObj = document.getElementsByClassName('row');
+	var noOfRows = rowsObj.length;
+	var colsObj = document.getElementsByClassName('col');
+	var noOfCols = colsObj.length/noOfRows;
+
+	console.log(noOfRows, noOfCols);
+
 	var arr = [];
 	for(var x = 0; x < 4; x++){
 	    arr[x] = [];    
@@ -28,15 +36,14 @@ gameManager.prototype.intializeGame = function(){
 	    	if(x==0 & y==4 ){
 	    		arr[x][y] =  Math.random() < 0.9 ? 6 : 4 ;
 	    	}
-	    	else if((x==1 & y==1){
+	    	else if(x==1 & y==1){
 	    		arr[x][y] = Math.random() < 0.9 ? 2 : 4 ;
 	    	}
 	    	else{
-	    		arr[x][y] = undefined;
+	    		arr[x][y] = 'xx';
 	    	}
 	    }    
 	}
-	
 }
 
 gameManager.prototype.move = function (direction){
@@ -69,7 +76,9 @@ gameManager.prototype.addScore = function (){
 	this.totalScoreOfCell = this.getCellValue(direction);
 }
 
-
+	game.initializeGame();
+	
+})();
 
 
 
